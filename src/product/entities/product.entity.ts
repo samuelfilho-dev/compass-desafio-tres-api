@@ -21,36 +21,38 @@ export class Product {
 
   @OneToMany(() => Category, (category) => category.product, {
     nullable: false,
+    orphanedRowAction: 'nullify',
+    eager: true
   })
   categories: Category[];
 
   @Column({ length: 250, nullable: false })
   description: string;
 
-  @Column({ nullable: false })
-  large_description: string;
+  @Column({ name: 'large_description', nullable: false })
+  largeDescription: string;
 
   @Column({ nullable: false })
   price: number;
 
-  @Column()
-  discount_price: number;
+  @Column({ name: 'discount_price' })
+  discountPrice: number;
 
-  @Column()
-  discount_percent: number;
+  @Column({ name: 'discount_percent' })
+  discountPercent: number;
 
   @Column({ default: false })
   is_new: boolean;
 
   @Column({ length: 250 })
-  image_link: string;
+  imageLink: string;
 
-  @Column()
-  other_images_link: string;
+  @Column({ name: 'other_images_link' })
+  otherImagesLink: string;
 
-  @CreateDateColumn()
-  create_date: Date;
+  @CreateDateColumn({ name: 'create_date' })
+  createDate: Date;
 
-  @UpdateDateColumn()
-  update_date: Date;
+  @UpdateDateColumn({ name: 'update_date' })
+  updateDate: Date;
 }
