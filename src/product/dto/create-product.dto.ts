@@ -9,29 +9,29 @@ export class CreateProductDto {
 
   @IsNumber()
   @IsPositive()
-  category_id: number;
+  categoryId: number;
 
   @IsString()
   description: string;
 
   @IsString()
-  large_description: string;
+  largeDescription: string;
 
   @IsNumber()
   price: number;
 
   @IsNumber()
-  discount_price: number;
+  discountPrice: number;
 
   @IsNumber()
-  discount_percent: number;
+  discountPercent: number;
 
-  @IsBoolean()
-  is_new: boolean;
 
-  @IsString()
-  image_link: string;
+  isNew: boolean;
 
   @IsString()
-  other_images_link: string;
+  imageLink: string;
+
+  @IsString()
+  otherImagesLink: string;
 }
