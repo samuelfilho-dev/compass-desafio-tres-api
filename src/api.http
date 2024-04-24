@@ -1,0 +1,11 @@
+### Test API
+GET http://localhost:3000/product
+
+
+### Create Product
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+
+}
