@@ -19,12 +19,14 @@ export class Category {
   @Column({ name: 'image_link',length: 250 })
   imageLink: string;
 
-  @ManyToOne(() => Product, (product) => product.categories)
+  @ManyToOne(() => Product, (product) => product.categories, {
+    orphanedRowAction: 'nullify'
+  })
   product: Product;
 
-  @CreateDateColumn()
-  created_date: Date;
+  @CreateDateColumn({name: 'created_date'})
+  createdDate: Date;
 
-  @UpdateDateColumn()
-  updated_date: Date;
+  @UpdateDateColumn({name: 'updated_date'})
+  updatedDate: Date;
 }
