@@ -6,7 +6,7 @@ export class UpdateCategoryDto {
   name: string;
 
   @IsString()
-  image_link: string;
+  imageLink: string;
 
   product: Product;
 }
