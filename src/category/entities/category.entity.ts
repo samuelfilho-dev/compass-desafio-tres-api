@@ -16,17 +16,17 @@ export class Category {
   @Column({ length: 50, nullable: false })
   name: string;
 
-  @Column({ name: 'image_link',length: 250 })
+  @Column({ name: 'image_link', length: 250 })
   imageLink: string;
 
   @ManyToOne(() => Product, (product) => product.categories, {
-    orphanedRowAction: 'nullify'
+    orphanedRowAction: 'nullify',
   })
   product: Product;
 
-  @CreateDateColumn({name: 'created_date'})
+  @CreateDateColumn({ name: 'created_date' })
   createdDate: Date;
 
-  @UpdateDateColumn({name: 'updated_date'})
+  @UpdateDateColumn({ name: 'updated_date' })
   updatedDate: Date;
 }

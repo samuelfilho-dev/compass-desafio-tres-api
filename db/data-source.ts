@@ -12,9 +12,9 @@ switch (process.env.NODE_ENV) {
       username: 'postgres',
       entities: ['**/*.entity.js'],
       database: 'desafio_tres',
-      synchronize: true,
+      synchronize: false,
       logging: true,
-      // migrations: ['migrations/**'],
+      migrations: ['dist/migrations/**'],
     };
     break;
   case 'test':
