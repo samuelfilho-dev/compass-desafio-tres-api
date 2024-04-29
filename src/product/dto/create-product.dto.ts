@@ -1,4 +1,4 @@
-import { IsBoolean, IsNumber, IsPositive, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
@@ -7,9 +7,8 @@ export class CreateProductDto {
   @IsString()
   sku: string;
 
-  @IsNumber()
-  @IsPositive()
-  categoryId: number;
+  @IsArray()
+  categoryIds: number[];
 
   @IsString()
   description: string;
@@ -26,7 +25,7 @@ export class CreateProductDto {
   @IsNumber()
   discountPercent: number;
 
-
+  @IsBoolean()
   isNew: boolean;
 
   @IsString()

@@ -22,7 +22,7 @@ export class Product {
   @OneToMany(() => Category, (category) => category.product, {
     nullable: false,
     orphanedRowAction: 'nullify',
-    eager: true
+    eager: true,
   })
   categories: Category[];
 
@@ -41,8 +41,8 @@ export class Product {
   @Column({ name: 'discount_percent' })
   discountPercent: number;
 
-  @Column({ default: false })
-  is_new: boolean;
+  @Column({ name: 'is_new' })
+  isNew: boolean;
 
   @Column({ length: 250 })
   imageLink: string;

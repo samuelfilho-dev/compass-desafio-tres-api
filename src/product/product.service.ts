@@ -14,20 +14,22 @@ export class ProductService {
     @InjectRepository(Product) private productRepository: Repository<Product>,
     @InjectRepository(Category)
     private categoryRepository: Repository<Category>,
-  ) {}
+  ) {
+  }
 
   async create(createProductDto: CreateProductDto) {
     const dbProduct = this.productRepository.create(createProductDto);
 
-    const dbCategory = await this.categoryRepository.findOneBy({
-      id: createProductDto.categoryId,
-    });
+    for (let categoryId of createProductDto.categoryIds) {
+      this.categoryRepository.findOneBy({ id: categoryId }).then((category) => {
+        dbProduct.categories.push(category);
+      });
+
+    }
 
     if (!dbProduct.categories) {
       dbProduct.categories = [];
     }
-
-    dbProduct.categories.push(dbCategory);
 
     return this.productRepository.save(dbProduct);
   }
