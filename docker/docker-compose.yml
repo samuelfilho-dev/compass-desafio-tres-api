@@ -1,6 +1,13 @@
 version: "3.9"
 
 services:
+  app:
+    build: ../Dockerfile
+    entrypoint: ../entrypoint.sh
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../:home/node/app
   db:
     image: postgres:15-alpine
     container_name: db-postgres
